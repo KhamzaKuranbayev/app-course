@@ -24,10 +24,10 @@ public class Company {
     @ManyToOne
     private User owner;
 
-    @OneToOne
+    @ManyToOne
     private Address address;
 
-    @OneToOne
+    @ManyToOne
     private Contact contact;
 
     @ManyToOne
