@@ -10,4 +10,8 @@ public abstract class FrontURLs {
     public static final String COURSE_CATEGORIES = "/courseCategories";
     public static final String ADDRESSES = "/addresses";
 
+    //ABROR
+    public static final String APPLICATIONS= "/applications";
+    public static final String CONTACTS = "/contacts";
+
 }
