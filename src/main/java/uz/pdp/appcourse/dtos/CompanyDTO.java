@@ -10,6 +10,6 @@ public class CompanyDTO {
     private Integer ownerId;
     private Integer addressId;
     private Integer contactId;
-    private Integer Id;
+    private Integer categoryId;
     private Double price;
 }
