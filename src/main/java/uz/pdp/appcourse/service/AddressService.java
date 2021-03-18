@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public interface AddressService {
 
-    Result save(AddressDTO addressDTO);
+    Result save(AddressDTO addressDTO);                 // CREATE
 
     List<Address> findAll();                            // READ
 

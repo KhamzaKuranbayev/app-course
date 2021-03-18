@@ -11,11 +11,11 @@ import java.util.List;
 @Service
 public interface DistrictService {
 
-    Result save(DistrictDTO districtDTO);
+    Result save(DistrictDTO districtDTO);                  // CREATE
 
     List<District> findAll();                              // READ
 
-    Address findById(Integer id);                          // READ ONE
+    District findById(Integer id);                          // READ ONE
 
     Result update(DistrictDTO districtDTO, Integer id);    // UPDATE
 

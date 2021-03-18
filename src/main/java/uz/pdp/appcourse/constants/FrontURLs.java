@@ -9,6 +9,11 @@ public abstract class FrontURLs {
     public static final String COMPANY_CATEGORIES = "/companyCategories";
     public static final String COURSE_CATEGORIES = "/courseCategories";
     public static final String ADDRESSES = "/addresses";
+    public static final String APPLICATIONS = "/applications";
+    public static final String CONTACTS = "/contacts";
+    public static final String DISTRICTS = "/districts";
+    public static final String REGIONS = "/regions";
+    public static final String ROLES = "/roles";
 
     //ABROR
     public static final String APPLICATIONS= "/applications";

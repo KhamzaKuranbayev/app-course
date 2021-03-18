@@ -19,29 +19,38 @@ public class UserController {
         this.userService = userService;
     }
 
-    //CREATE
+    // CREATE
     @PostMapping()
-    public Result save(@RequestBody UserDTO userDTO) {
-        return userService.save(userDTO);
+    public Result save(@RequestBody UserDTO userDTO){
+        Result save = userService.save(userDTO);
+        return save;
     }
-    //READ
+
+    // READ
     @GetMapping()
-    public List<User> findAll() {
-        return userService.findAll();
+    public List<User> findAll(){
+        List<User> users = userService.findAll();
+        return users;
     }
-    //READ ONE BY ID
+
+    // READ BY ID
     @GetMapping("/{id}")
     public User findById(@PathVariable Integer id){
-        return userService.findById(id);
+        User user = userService.findById(id);
+        return user;
     }
-    //UPDATE
-    @PutMapping("/{id}")
+
+    // UPDATE
+    @PutMapping("/update/{id}")
     public Result update(@RequestBody UserDTO userDTO, @PathVariable Integer id){
-        return userService.update(userDTO, id);
+        Result update = userService.update(userDTO, id);
+        return update;
     }
-    //DELETE
-    @DeleteMapping("/{id}")
+
+    // DELETE
+    @DeleteMapping("/delete/{id}")
     public Result delete(@PathVariable Integer id){
-        return userService.delete(id);
+        Result delete = userService.delete(id);
+        return delete;
     }
 }

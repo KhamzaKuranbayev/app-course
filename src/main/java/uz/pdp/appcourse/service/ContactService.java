@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public interface ContactService {
 
-    Result save(Contact contact);
+    Result save(Contact contact);                       // CREATE
 
     List<Contact> findAll();                            // READ
 

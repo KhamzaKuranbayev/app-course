@@ -10,11 +10,11 @@ import java.util.List;
 @Service
 public interface RegionService {
 
-    Result save(Region region);
+    Result save(Region region);                         // CREATE
 
     List<Region> findAll();                             // READ
 
-    Address findById(Integer id);                       // READ ONE
+    Region findById(Integer id);                       // READ ONE
 
     Result update(Region region, Integer id);           // UPDATE
 

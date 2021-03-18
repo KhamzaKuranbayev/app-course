@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public interface ApplicationService {
 
-    Result save(ApplicationDTO applicationDTO);
+    Result save(ApplicationDTO applicationDTO);                 // CREATE
 
     List<Application> findAll();                                // READ
 

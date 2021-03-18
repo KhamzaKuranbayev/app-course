@@ -18,6 +18,6 @@ public interface UserService {
 
     Result update(UserDTO userDTO, Integer id); // UPDATE
 
-    Result delete(Integer id); // UPDATE        // DELETE
+    Result delete(Integer id);       // DELETE
 
 }

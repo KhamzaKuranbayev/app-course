@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public interface ActiveCourseService {
 
-    Result save(ActiveCourseDTO activeCourseDTO);
+    Result save(ActiveCourseDTO activeCourseDTO);                 // CREATE
 
     List<ActiveCourse> findAll();                                 // READ
 

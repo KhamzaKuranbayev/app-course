@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public interface CompanyService {
 
-    Result save(CompanyDTO companyDTO);
+    Result save(CompanyDTO companyDTO);                 // CREATE
 
     List<Company> findAll();                            // READ
 
