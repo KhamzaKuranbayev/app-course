@@ -5,12 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CourseCategory {
+
+public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,12 +22,20 @@ public class CourseCategory {
 
     private String description;
 
-    @ManyToOne
-    private CourseCategory parentId;
+    @ManyToMany
+    private List<Company> company;
 
-    // 1. English   sdsdd       null
-    // 2. Kids      sdsdd       1
-    // 3. Elementary sdsdd      1
-    // 4. IT         sdsdd      null
-    // 5. Java      sdsdd      4
+    // MANY COURSES TO ONE CATEGORY
+    @ManyToOne
+    private CourseCategory category;
+
+    /*
+    *       *   1               1
+    *   2               1
+    *   3               1
+    *   1               2
+    *
+    *
+    * */
+
 }

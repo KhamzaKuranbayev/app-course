@@ -5,12 +5,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Locale;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CourseCategory {
+public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,14 +19,20 @@ public class CourseCategory {
 
     private String name;
 
-    private String description;
+    private String detail;
 
     @ManyToOne
-    private CourseCategory parentId;
+    private User owner;
 
-    // 1. English   sdsdd       null
-    // 2. Kids      sdsdd       1
-    // 3. Elementary sdsdd      1
-    // 4. IT         sdsdd      null
-    // 5. Java      sdsdd      4
+    @OneToOne
+    private Address address;
+
+    @OneToOne
+    private Contact contact;
+
+    @ManyToOne
+    private CompanyCategory category;
+
+    private Double price;
+
 }
