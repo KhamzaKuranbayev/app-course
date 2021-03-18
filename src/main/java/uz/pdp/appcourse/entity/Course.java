@@ -23,7 +23,7 @@ public class Course {
     private String description;
 
     @ManyToMany
-    private List<Company> company;
+    private List<Company> companies;
 
     // MANY COURSES TO ONE CATEGORY
     @ManyToOne

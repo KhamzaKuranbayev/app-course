@@ -6,4 +6,7 @@ import uz.pdp.appcourse.entity.CompanyCategory;
 
 @Repository
 public interface CompanyCategoryRepository extends JpaRepository<CompanyCategory, Integer> {
+
+    boolean existsByName(String name);
+
 }

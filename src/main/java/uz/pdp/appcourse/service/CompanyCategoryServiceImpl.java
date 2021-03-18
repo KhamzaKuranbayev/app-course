@@ -18,6 +18,8 @@ public class CompanyCategoryServiceImpl implements CompanyCategoryService{
 
     @Override
     public Result save(CompanyCategory companyCategory) {
+        if(companyCategoryRepository.existsByName(companyCategory.getName()))
+            return new Result("This category is already exists!", false);
         return null;
     }
 

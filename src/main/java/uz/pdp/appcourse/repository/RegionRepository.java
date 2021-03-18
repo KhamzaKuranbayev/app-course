@@ -6,4 +6,5 @@ import uz.pdp.appcourse.entity.Region;
 
 @Repository
 public interface RegionRepository extends JpaRepository<Region, Integer> {
+
 }

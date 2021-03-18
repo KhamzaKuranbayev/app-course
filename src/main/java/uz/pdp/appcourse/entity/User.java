@@ -18,6 +18,8 @@ public class User {
 
     private String fullName;
 
+    private Integer age;
+
     @OneToOne
     private Address address;
 
