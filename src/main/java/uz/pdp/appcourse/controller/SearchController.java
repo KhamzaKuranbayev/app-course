@@ -1,8 +1,16 @@
 package uz.pdp.appcourse.controller;
 
+import org.springframework.data.repository.query.Param;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import uz.pdp.appcourse.constants.FrontURLs;
+import uz.pdp.appcourse.dtos.response.ResponseCompany;
+import uz.pdp.appcourse.entity.Course;
+import uz.pdp.appcourse.service.CompanyService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(FrontURLs.SEARCH)
@@ -22,6 +30,16 @@ public class SearchController {
     //
     // */
 
+    final CompanyService companyService;
+
+    public SearchController(CompanyService companyService) {
+        this.companyService = companyService;
+    }
+
+    @GetMapping("/companies")
+    List<ResponseCompany> getCompaniesByRegionAndCourseCategory(@RequestHeader("region") String region, @RequestHeader("course") String course) {
+        return companyService.findAllByCategoryAndAddress(region, course);
+    }
 
 
 }

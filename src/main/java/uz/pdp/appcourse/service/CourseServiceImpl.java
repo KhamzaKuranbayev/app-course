@@ -35,6 +35,7 @@ public class CourseServiceImpl implements CourseService {
         Course course = new Course();
         course.setName(courseDTO.getName());
         course.setDescription(courseDTO.getDescription());
+        course.setPrice(courseDTO.getPrice());
 
         Optional<CourseCategory> optionalCourseCategory = courseCategoryRepository.findById(courseDTO.getCategoryId());
         if(!optionalCourseCategory.isPresent())
@@ -73,6 +74,7 @@ public class CourseServiceImpl implements CourseService {
         if(optionalCourse.isPresent()){
             optionalCourse.get().setName(courseDTO.getName());
             optionalCourse.get().setDescription(courseDTO.getDescription());
+            optionalCourse.get().setPrice(courseDTO.getPrice());
             Optional<Company> companyRepositoryById = companyRepository.findById(courseDTO.getCompanyId());
             if (companyRepositoryById.isPresent()) {
                 courseRepository.save(optionalCourse.get());

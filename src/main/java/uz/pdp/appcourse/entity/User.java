@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "sys_user")
 public class User {
 
     @Id

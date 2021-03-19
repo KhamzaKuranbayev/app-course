@@ -3,6 +3,7 @@ package uz.pdp.appcourse.service;
 import org.springframework.stereotype.Service;
 import uz.pdp.appcourse.dtos.CompanyDTO;
 import uz.pdp.appcourse.dtos.Result;
+import uz.pdp.appcourse.dtos.response.ResponseCompany;
 import uz.pdp.appcourse.entity.Company;
 import uz.pdp.appcourse.entity.User;
 import uz.pdp.appcourse.repository.*;
@@ -30,6 +31,7 @@ public class CompanyServiceImpl implements CompanyService{
 
     @Override
     public Result save(CompanyDTO companyDTO) {
+
         return null;
     }
 
@@ -51,5 +53,10 @@ public class CompanyServiceImpl implements CompanyService{
     @Override
     public Result delete(Integer id) {
         return null;
+    }
+
+    @Override
+    public List<ResponseCompany> findAllByCategoryAndAddress(String region, String course) {
+        return companyRepository.findAllByCategoryAndAddress(region, course);
     }
 }

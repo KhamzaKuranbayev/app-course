@@ -28,6 +28,9 @@ public class Course {
     @ManyToOne
     private CourseCategory category;
 
+    private Double price;
+
+
     /*
     *       *   1               1
     *   2               1

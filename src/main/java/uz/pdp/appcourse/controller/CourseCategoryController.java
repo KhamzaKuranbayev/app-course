@@ -5,18 +5,20 @@ import uz.pdp.appcourse.constants.FrontURLs;
 import uz.pdp.appcourse.dtos.CourseCategoryDTO;
 import uz.pdp.appcourse.dtos.Result;
 import uz.pdp.appcourse.entity.CourseCategory;
+import uz.pdp.appcourse.service.CourseCategoryService;
 
 import java.util.List;
 
 @RestController
 @RequestMapping(FrontURLs.COURSE_CATEGORIES)
-public class CourseCategoryService {
+public class CourseCategoryController {
 
-    private final CourseCategoryService courseCategoryService;
+    final CourseCategoryService courseCategoryService;
 
-    public CourseCategoryService(CourseCategoryService courseCategoryService) {
+    public CourseCategoryController(CourseCategoryService courseCategoryService) {
         this.courseCategoryService = courseCategoryService;
     }
+
     // CREATE
     @PostMapping()
     public Result save(@RequestBody CourseCategoryDTO courseCategoryDTO){

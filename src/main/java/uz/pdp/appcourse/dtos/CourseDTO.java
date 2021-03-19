@@ -12,4 +12,5 @@ public class CourseDTO {
     private String description;
     private Integer categoryId;
     private Integer companyId;
+    private Double price;
 }

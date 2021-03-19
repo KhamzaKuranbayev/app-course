@@ -33,6 +33,5 @@ public class Company {
     @ManyToOne
     private CompanyCategory category;
 
-    private Double price;
 
 }

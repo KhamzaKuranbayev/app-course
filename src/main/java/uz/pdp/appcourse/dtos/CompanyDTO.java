@@ -11,5 +11,4 @@ public class CompanyDTO {
     private Integer addressId;
     private Integer contactId;
     private Integer categoryId;
-    private Double price;
 }
