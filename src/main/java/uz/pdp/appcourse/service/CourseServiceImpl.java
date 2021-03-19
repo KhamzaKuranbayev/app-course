@@ -52,11 +52,17 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public List<Course> findAll() {
-        return null;
+        List<Course> courseRepositoryAll = courseRepository.findAll();
+        return courseRepositoryAll;
     }
 
     @Override
     public Course findById(Integer id) {
+        Optional<Course> courseRepositoryById = courseRepository.findById(id);
+        if (courseRepositoryById.isPresent()){
+            Course course = courseRepositoryById.get();
+            return course;
+        }
         return null;
     }
 
@@ -65,13 +71,27 @@ public class CourseServiceImpl implements CourseService {
 
         Optional<Course> optionalCourse = courseRepository.findById(id);
         if(optionalCourse.isPresent()){
-
+            optionalCourse.get().setName(courseDTO.getName());
+            optionalCourse.get().setDescription(courseDTO.getDescription());
+            Optional<Company> companyRepositoryById = companyRepository.findById(courseDTO.getCompanyId());
+            if (companyRepositoryById.isPresent()) {
+                courseRepository.save(optionalCourse.get());
+                return new Result("Course Updated!", true);
+            }
         }
-        return null;
+
+
+        return new Result("Course Not Found!",false);
+
     }
 
     @Override
     public Result delete(Integer id) {
-        return null;
+        Optional<Course> courseRepositoryById = courseRepository.findById(id);
+        if (courseRepositoryById.isPresent()){
+            courseRepository.deleteById(id);
+            return new Result("Course Deleted!", true);
+        }
+        return new Result ("No Such Course!", false);
     }
 }

@@ -3,7 +3,6 @@ package uz.pdp.appcourse.service;
 import org.springframework.stereotype.Service;
 import uz.pdp.appcourse.dtos.DistrictDTO;
 import uz.pdp.appcourse.dtos.Result;
-import uz.pdp.appcourse.entity.Address;
 import uz.pdp.appcourse.entity.District;
 import uz.pdp.appcourse.repository.DistrictRepository;
 import uz.pdp.appcourse.repository.RegionRepository;
@@ -32,7 +31,7 @@ public class DistrictServiceImpl implements DistrictService {
     }
 
     @Override
-    public Address findById(Integer id) {
+    public District findById(Integer id) {
         return null;
     }
 
