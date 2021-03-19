@@ -8,7 +8,7 @@ import uz.pdp.appcourse.repository.RoleRepository;
 import java.util.List;
 
 @Service
-public class RoleServiceImpl implements RoleService{
+public class RoleServiceImpl implements RoleService {
 
     final RoleRepository roleRepository;
 
@@ -16,28 +16,52 @@ public class RoleServiceImpl implements RoleService{
         this.roleRepository = roleRepository;
     }
 
+    //CREATE
     @Override
     public Result save(Role role) {
-        return null;
+        if (roleRepository.existsByName(role.getName())) {
+            roleRepository.save(role);
+            return new Result("Role qo'shildi", true);
+        } else {
+            return new Result("Role nomi takrorlandi", false);
+        }
     }
 
+    //READ
     @Override
     public List<Role> findAll() {
-        return null;
+        return roleRepository.findAll();
     }
 
+    //GET ONE BY ID
     @Override
     public Role findById(Integer id) {
-        return null;
+        if (roleRepository.existsById(id)) {
+            return roleRepository.getOne(id);
+        } else {
+            return new Role();
+        }
     }
 
+    //UPDATE
     @Override
     public Result update(Role role, Integer id) {
-        return null;
+        if (roleRepository.existsById(id)) {
+            roleRepository.save(role);
+            return new Result("O'zgartirildi", true);
+        } else {
+            return new Result("Bunday idli role yo'q", false);
+        }
     }
 
+    //DELETE
     @Override
     public Result delete(Integer id) {
-        return null;
+        if (roleRepository.existsById(id)) {
+            roleRepository.deleteById(id);
+            return new Result("Role o'chirildi", true);
+        } else {
+            return new Result("Bunday idli role yo'q", false);
+        }
     }
 }

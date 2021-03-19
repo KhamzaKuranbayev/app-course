@@ -6,4 +6,6 @@ import uz.pdp.appcourse.entity.Role;
 
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Integer> {
+
+    boolean existsByName(String name);
 }
