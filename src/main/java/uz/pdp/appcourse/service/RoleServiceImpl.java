@@ -20,10 +20,10 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public Result save(Role role) {
         if (roleRepository.existsByName(role.getName())) {
+            return new Result("Role nomi takrorlandi", false);
+        } else {
             roleRepository.save(role);
             return new Result("Role qo'shildi", true);
-        } else {
-            return new Result("Role nomi takrorlandi", false);
         }
     }
 
