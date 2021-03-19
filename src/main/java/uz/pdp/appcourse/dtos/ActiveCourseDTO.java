@@ -10,6 +10,6 @@ public class ActiveCourseDTO {
 
     private Integer courseId;
     private Integer maxStudent;
-    private Integer currentStudent;
+    private Integer currentStudentsCount;
     private Date startDate;
 }

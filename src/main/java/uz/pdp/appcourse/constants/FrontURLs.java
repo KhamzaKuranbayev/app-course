@@ -14,5 +14,7 @@ public abstract class FrontURLs {
     public static final String DISTRICTS = "/districts";
     public static final String REGIONS = "/regions";
     public static final String ROLES = "/roles";
+    public static final String SEARCH = "/search";
+
 
 }

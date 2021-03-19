@@ -65,9 +65,8 @@ public class CourseServiceImpl implements CourseService {
 
         Optional<Course> optionalCourse = courseRepository.findById(id);
         if(optionalCourse.isPresent()){
+
         }
-
-
         return null;
     }
 

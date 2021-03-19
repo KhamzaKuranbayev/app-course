@@ -22,7 +22,7 @@ public class ActiveCourse {
 
     private Integer maxStudent;
 
-    private Integer currentStudent;
+    private Integer currentStudentsCount;
 
     private Date startDate;
 
