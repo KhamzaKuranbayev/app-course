@@ -16,28 +16,57 @@ public class RegionServiceImpl implements RegionService{
         this.regionRepository = regionRepository;
     }
 
+    //CREATE
     @Override
     public Result save(Region region) {
-        return null;
+        if (regionRepository.findByName(region.getName()).isPresent()){
+            return new Result("Region nomi takrorlandi", false);
+        }else {
+            region.setCode(DistrictServiceImpl.generateUUIDCode());
+            regionRepository.save(region);
+            return new Result("Yangi region qo'shildi", true);
+        }
     }
 
+    //READ
     @Override
     public List<Region> findAll() {
-        return null;
+        return regionRepository.findAll();
     }
 
+    //READ BY ID
     @Override
     public Region findById(Integer id) {
-        return null;
+        return regionRepository.findById(id).orElse(new Region());
     }
 
+    //UPDATE
     @Override
     public Result update(Region region, Integer id) {
-        return null;
+       if (regionRepository.existsById(id)){
+           if (regionRepository.findByName(region.getName()).isPresent()){
+               return new Result("Region nomi takrorlandi", false);
+           }else {
+               Region outRegion = regionRepository.getOne(id);
+               outRegion.setName(region.getName());
+               regionRepository.save(outRegion);
+               return new Result("Region o'zgartirildi", true);
+           }
+       }else {
+           return new Result("Bunday idli region  yo'q", false);
+       }
     }
 
+    //DELETE
     @Override
     public Result delete(Integer id) {
-        return null;
+        if (regionRepository.existsById(id)){
+            regionRepository.deleteById(id);
+            return new Result("O'chirildi", true);
+        }else {
+            return new Result("Bunday idli region yo'q", false);
+        }
     }
+
+
 }
