@@ -38,19 +38,13 @@ public class CourseServiceImpl implements CourseService {
 
         Optional<CourseCategory> optionalCourseCategory = courseCategoryRepository.findById(courseDTO.getCategoryId());
         if(!optionalCourseCategory.isPresent())
-            return new Result("Not found Course Category!", false);
+            return new Result("Course Category not found!", false);
         course.setCategory(optionalCourseCategory.get());
 
-        List<Integer> companyIdList = courseDTO.getCompanyIdList();
-
-        List<Company> companyList = new ArrayList<>();
-
-        for (Integer companyId : companyIdList) {
-            Optional<Company> optionalCompany = companyRepository.findById(companyId);
-            optionalCompany.ifPresent(companyList::add);
-        }
-
-        course.setCompanies(companyList);
+        Optional<Company> optionalCompany = companyRepository.findById(courseDTO.getCompanyId());
+        if(!optionalCompany.isPresent())
+            return new Result("Company not found!", false);
+        course.setCompany(optionalCompany.get());
 
         courseRepository.save(course);
         return new Result("New Course saved!", true);

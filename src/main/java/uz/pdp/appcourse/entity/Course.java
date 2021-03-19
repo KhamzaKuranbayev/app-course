@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
@@ -22,8 +21,8 @@ public class Course {
 
     private String description;
 
-    @ManyToMany
-    private List<Company> companies;
+    @ManyToOne
+    private Company company;
 
     // MANY COURSES TO ONE CATEGORY
     @ManyToOne

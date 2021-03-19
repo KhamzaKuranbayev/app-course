@@ -11,5 +11,5 @@ public class CourseDTO {
     private String name;
     private String description;
     private Integer categoryId;
-    private List<Integer> companyIdList;
+    private Integer companyId;
 }
