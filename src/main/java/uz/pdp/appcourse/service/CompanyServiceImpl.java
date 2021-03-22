@@ -59,4 +59,9 @@ public class CompanyServiceImpl implements CompanyService{
     public List<ResponseCompany> findAllByCategoryAndAddress(String region, String course) {
         return companyRepository.findAllByCategoryAndAddress(region, course);
     }
+
+    @Override
+    public List<ResponseCompany> findAllByCourseName(String courseName) {
+        return companyRepository.findAllByCourseName(courseName);
+    }
 }

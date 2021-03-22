@@ -4,6 +4,7 @@ import jdk.nashorn.internal.runtime.options.Option;
 import org.springframework.stereotype.Service;
 import uz.pdp.appcourse.dtos.CourseDTO;
 import uz.pdp.appcourse.dtos.Result;
+import uz.pdp.appcourse.dtos.response.ResponseCourse;
 import uz.pdp.appcourse.entity.Company;
 import uz.pdp.appcourse.entity.Course;
 import uz.pdp.appcourse.entity.CourseCategory;
@@ -95,5 +96,10 @@ public class CourseServiceImpl implements CourseService {
             return new Result("Course Deleted!", true);
         }
         return new Result ("No Such Course!", false);
+    }
+
+    @Override
+    public List<ResponseCourse> findAllByCategory(String category) {
+        return courseRepository.getCoursesByCategory(category);
     }
 }

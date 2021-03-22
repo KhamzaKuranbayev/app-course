@@ -3,6 +3,7 @@ package uz.pdp.appcourse.service;
 import org.springframework.stereotype.Service;
 import uz.pdp.appcourse.dtos.CourseDTO;
 import uz.pdp.appcourse.dtos.Result;
+import uz.pdp.appcourse.dtos.response.ResponseCourse;
 import uz.pdp.appcourse.entity.Course;
 
 import java.util.List;
@@ -20,4 +21,5 @@ public interface CourseService {
 
     Result delete(Integer id);                          // DELETE
 
+    List<ResponseCourse> findAllByCategory(String category);
 }

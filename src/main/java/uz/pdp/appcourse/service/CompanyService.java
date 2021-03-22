@@ -1,6 +1,5 @@
 package uz.pdp.appcourse.service;
 
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import uz.pdp.appcourse.dtos.CompanyDTO;
 import uz.pdp.appcourse.dtos.Result;
@@ -22,6 +21,8 @@ public interface CompanyService {
 
     Result delete(Integer id);                           // DELETE
 
-    List<ResponseCompany> findAllByCategoryAndAddress(String region, String course);
+    List<ResponseCompany> findAllByCategoryAndAddress(String region, String courseCategory);
+
+    List<ResponseCompany> findAllByCourseName(String courseName);
 
 }

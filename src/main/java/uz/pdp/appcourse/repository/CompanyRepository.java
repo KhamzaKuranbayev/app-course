@@ -21,6 +21,14 @@ public interface CompanyRepository extends JpaRepository<Company, Integer> {
 
 
 
+
+    @Query("select new uz.pdp.appcourse.dtos.response.ResponseCompany(crs.company.name, crs.company.detail, " +
+            "crs.company.address.home, crs.company.address.street, " +
+            "crs.company.owner.fullName, crs.company.contact.phone, crs.name) " +
+            "from Course crs where crs.name = ?1")
+    List<ResponseCompany> findAllByCourseName(String courseName);
+
+
    /* @Query(value = "SELECT cy.name, cy.detail, a.home +' '+a.street, su.full_name, ct.phone   FROM company cy " +
             "JOIN address a on a.id = cy.address_id " +
             "JOIN district d on d.id = a.district_id " +
